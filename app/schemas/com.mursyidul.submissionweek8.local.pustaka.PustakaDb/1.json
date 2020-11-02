@@ -1,0 +1,90 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "bfd1ab53f7e040622807bca038840d8c",
+    "entities": [
+      {
+        "tableName": "pustaka",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id_pustaka` INTEGER PRIMARY KEY AUTOINCREMENT, `nama` TEXT, `tanggal_pinjam` TEXT, `judul_buku` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id_pustaka",
+            "columnName": "id_pustaka",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nama_peminjam",
+            "columnName": "nama",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tanggal_pinjam",
+            "columnName": "tanggal_pinjam",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "judul",
+            "columnName": "judul_buku",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id_pustaka"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "user_data",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`user_id` INTEGER PRIMARY KEY AUTOINCREMENT, `user_name` TEXT NOT NULL, `user_email` TEXT NOT NULL, `user_password` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "user_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "user_name",
+            "columnName": "user_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "user_email",
+            "columnName": "user_email",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "user_password",
+            "columnName": "user_password",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "user_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'bfd1ab53f7e040622807bca038840d8c')"
+    ]
+  }
+}
